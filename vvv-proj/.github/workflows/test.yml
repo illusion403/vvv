@@ -1,0 +1,24 @@
+name: Test Actions
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Hello World
+      run: echo "GitHub Actions is working!"
+      
+    - name: Show Node version
+      run: node --version
+      
+    - name: Show npm version
+      run: npm --version
