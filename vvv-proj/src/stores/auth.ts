@@ -90,7 +90,8 @@ export const useAuthStore = defineStore('auth', () => {
       }
       
       return true
-    } catch (err) {
+    } catch (error) {
+      console.error('Token refresh failed:', error)
       logout()
       return false
     }
