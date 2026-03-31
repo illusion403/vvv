@@ -3,14 +3,14 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+# Copy package files from vvv-proj directory
+COPY vvv-proj/package*.json ./
 
 # Install dependencies
 RUN npm ci --only=production
 
-# Copy source code
-COPY . .
+# Copy source code from vvv-proj directory
+COPY vvv-proj/ .
 
 # Build the application
 RUN npm run build
